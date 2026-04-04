@@ -4,6 +4,9 @@ import { Server } from "socket.io";
 import mongoose from "mongoose";
 import cors from "cors";
 import userRoutes from "./routes/users.route.js"
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 import { connect } from "node:http2";
 import {connectToSocket} from "./controllers/socketManager.js";
@@ -21,7 +24,7 @@ app.use(express.urlencoded({limit: "40kb"}));
 app.use("/api/v1/users", userRoutes);
 
 const start = async() => {
-   const ConnectionDb = await mongoose.connect("enter your link here");
+   const ConnectionDb = await mongoose.connect(process.env.MONGOLINK);
    console.log(`Mongoose Db is connected to host : ${ConnectionDb.connection.host}`)
    server.listen(app.get("port"), ()=>{
       console.log("App is listening at 8000")
