@@ -21,7 +21,7 @@ app.use(express.urlencoded({limit: "40kb"}));
 app.use("/api/v1/users", userRoutes);
 
 const start = async() => {
-   const ConnectionDb = await mongoose.connect("mongodb+srv://shivamgujjar5801_db_user:IycJm0GbT7l9mopQ@streammeet.4qoaz4l.mongodb.net/?appName=StreamMeet");
+   const ConnectionDb = await mongoose.connect("enter your link here");
    console.log(`Mongoose Db is connected to host : ${ConnectionDb.connection.host}`)
    server.listen(app.get("port"), ()=>{
       console.log("App is listening at 8000")
