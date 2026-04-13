@@ -7,16 +7,18 @@ import { AuthProvider } from './contexts/AuthContext';
 function App() {
 
   return (
-    <AuthProvider>
-      <div className='App'>
-        <Router>
+
+    <div className='App'>
+      <Router>
+        <AuthProvider>
           <Routes>
-            <Route path='' element={<LandingPage/>}/>
+            <Route path='' element={<LandingPage />} />
             <Route path='/auth' element={<Authentication />} />
           </Routes>
-        </Router>
-      </div>
-    </AuthProvider>
+        </AuthProvider>
+      </Router>
+    </div>
+
   )
 }
 
